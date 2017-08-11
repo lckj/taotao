@@ -10,7 +10,7 @@
         <module name="taotao-manager-dao" />
         <module name="taotao-manager-interface" />
         <module name="taotao-manager-pojo" />
-        <module name="taotao-manager-service" />
+        <module name="taotao-manager-server" />
         <module name="taotao-manager-web" />
       </profile>
     </annotationProcessing>
@@ -20,6 +20,7 @@
       <module name="taotao-manager-dao" target="1.8" />
       <module name="taotao-manager-interface" target="1.8" />
       <module name="taotao-manager-pojo" target="1.8" />
+      <module name="taotao-manager-server" target="1.8" />
       <module name="taotao-manager-service" target="1.8" />
       <module name="taotao-manager-web" target="1.8" />
       <module name="taotao-parent" target="1.8" />
