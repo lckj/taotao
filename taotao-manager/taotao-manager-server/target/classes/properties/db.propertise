@@ -1,6 +1,0 @@
-jdbc.url=jdbc:mysql://192.168.13.110:3306/taotao?characterEncoding=utf-8
-jdbc.driver=com.mysql.jdbc.Driver
-jdbc.username=root
-jdbc.password=890610
-jdbc.maxActive=10
-jdbc.minIdle=3

@@ -32,7 +32,6 @@
                 <configuration>
                     <path>/</path>
                     <port>8080</port>
-                    <address>192.168.2.193</address>
                 </configuration>
             </plugin>
         </plugins>
