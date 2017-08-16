@@ -11,7 +11,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.util.List;
 
 public class TestPageHelper {
-
     public void testPageHelper() throws Exception{
         //1、在mybatis中配置插件
         //2、在查询前配置条件 使用PageHelper静态方法

@@ -23,4 +23,5 @@
     <!--<dubbo:annotation package="com.taotao.service"/>-->
     <!--dubbo发布服务-->
     <dubbo:service interface="com.taotao.service.ItemService" ref="itemServiceImpl" timeout="30000"/>
+    <dubbo:service interface="com.taotao.service.ItemCatService" ref="itemCatServiceImpl" timeout="30000"/>
 </beans>
