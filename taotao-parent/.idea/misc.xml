@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/../taotao-content/taotao-content-service" />
     <file type="web" url="file://$PROJECT_DIR$/../taotao-manager-web" />
     <file type="web" url="file://$PROJECT_DIR$/../taotao-manager/taotao-manager-server" />
     <file type="web" url="file://$PROJECT_DIR$/../taotao-manager/taotao-manager-service" />
+    <file type="web" url="file://$PROJECT_DIR$/../taotao-portal-web" />
+    <file type="web" url="file://$PROJECT_DIR$/../taotao-search-web" />
+    <file type="web" url="file://$PROJECT_DIR$/../taotao-search/taotao-search-server" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">

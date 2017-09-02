@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+       http://code.alibabatech.com/schema/dubbo  http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+    <!--配置包扫描器-->
+    <context:component-scan base-package="com.taotao.content.service"/>
+    <!--提供方应用信息 服务注册的名称-->
+    <dubbo:application name="taotao-content"/>
+    <!--注册中心地址-->
+    <dubbo:registry protocol="zookeeper" address="192.168.13.200:2181,192.168.13.201:2181,192.168.13.202:2181"/>
+    <!--用dubbo在20880端口暴露服务  dubbo在工程中 所以在工程启动时会在这同一台台机器上暴露服务，测试时在一台机器上不能相同-->
+    <dubbo:protocol name="dubbo" port="20881"/>
+    <!--<dubbo:annotation package="com.taotao.service"/>-->
+    <!--dubbo发布服务-->
+    <dubbo:service interface="com.taotao.content.service.ContentCategoryService" ref="contentCategoryServiceImpl" timeout="30000"/>
+    <dubbo:service interface="com.taotao.content.service.ContentService" ref="contentServiceImpl" timeout="30000"/>
+</beans>

@@ -5,12 +5,14 @@ import com.github.pagehelper.PageInfo;
 import com.taotao.mapper.TbItemMapper;
 import com.taotao.pojo.TbItem;
 import com.taotao.pojo.TbItemExample;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
 
 public class TestPageHelper {
+    @Test
     public void testPageHelper() throws Exception{
         //1、在mybatis中配置插件
         //2、在查询前配置条件 使用PageHelper静态方法
@@ -25,9 +27,5 @@ public class TestPageHelper {
         System.out.println("总记录数："+pageInfo.getTotal());
         System.out.println("总页数："+pageInfo.getPages());
         System.out.println("list总记录数："+list.size());
-    }
-
-    public static void main(String[] args) throws Exception {
-        new TestPageHelper().testPageHelper();
     }
 }

@@ -1,15 +1,12 @@
 package com.taotao.controller;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.taotao.common.pojo.EasyUIDataGridResult;
+import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.pojo.TbItem;
 import com.taotao.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  *商品管理Controller
@@ -38,5 +35,13 @@ public class ItemController {
     public EasyUIDataGridResult getItemList(@RequestParam Integer page, @RequestParam Integer rows){
         EasyUIDataGridResult items = itemService.getItemList(page,rows);
         return items;
+    }
+
+    @RequestMapping(value = "/item/save" , method = RequestMethod.POST)
+    //加了method就只能响应者一类请求否则可以响应其他任何请求
+    @ResponseBody
+    public TaotaoResult addItem(TbItem item,String desc){
+        TaotaoResult result = itemService.addItem(item, desc);
+        return result;
     }
 }
