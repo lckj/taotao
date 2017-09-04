@@ -15,7 +15,7 @@ import java.util.Map;
 
 public class TestSolr {
 
-    @Test
+//    @Test
     public void testAddDoc() throws Exception{
         //创建一个连接SolrServer，创建一个HttpSolrServer
         //需要指定solr服务的Url
@@ -32,7 +32,7 @@ public class TestSolr {
         //提交
         solrServer.commit();
     }
-    @Test
+//    @Test
     public void testAddDocBean() throws Exception{
         //创建一个连接SolrServer，创建一个HttpSolrServer
         //需要指定solr服务的Url
@@ -50,7 +50,7 @@ public class TestSolr {
         solrServer.commit();
     }
 
-    @Test
+//    @Test
     public void deleteDocById() throws Exception{
         String url = "http://192.168.13.200:8080/solr/collection1";
         SolrServer solrServer = new HttpSolrServer(url);
@@ -58,7 +58,7 @@ public class TestSolr {
         solrServer.commit();
     }
 
-    @Test
+//    @Test
     public void deleDocByQuery() throws Exception{
         String url = "http://192.168.13.200:8080/solr/collection1";
         SolrServer solrServer = new HttpSolrServer(url);
@@ -67,7 +67,7 @@ public class TestSolr {
         solrServer.commit();
     }
 
-    @Test
+//    @Test
     public void searchDoc() throws Exception{
         //创建solrserver
         String url = "http://192.168.13.200:8080/solr/collection1";

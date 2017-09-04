@@ -5,7 +5,7 @@ import org.apache.solr.client.solrj.impl.CloudSolrServer;
 import org.junit.Test;
 
 public class TestCloudSolr {
-    @Test
+//    @Test
     public void testCloud() throws Exception{
         CloudSolrServer cloudSolrServer = new CloudSolrServer("192.168.13.200:2181,192.168.13.201:2181,192.168.13.202:2181");
         cloudSolrServer.setDefaultCollection("collection2");

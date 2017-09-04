@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+       http://code.alibabatech.com/schema/dubbo  http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+    <!--正真产生Connection的ConnectionFactory 由JMS厂商提供-->
+    <bean id="tarConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <constructor-arg name="brokerURL" value="tcp://192.168.13.110:61616"/>
+    </bean>
+    <!--spring中管理正真产生Connection的ConnectionFactory的ConnectionFactory-->
+    <bean id="connectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
+        <property name="targetConnectionFactory" ref="tarConnectionFactory"/>
+    </bean>
+    <!--配置JMSTemplate-->
+    <!--配置生产者-->
+    <!--spring 提供的JMS工具类 可以进行消息的发送接受等-->
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="connectionFactory"/>
+    </bean>
+    <!--配置Destination-->
+    <!--配置queue-->
+    <bean id="test-queue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg name="name" value="test-queue"/>
+    </bean>
+    <!--配置topic-->
+    <bean id="test-topic" class="org.apache.activemq.command.ActiveMQTopic">
+        <constructor-arg name="name" value="test-topic"/>
+    </bean>
+    <bean id="itemAddTopic" class="org.apache.activemq.command.ActiveMQTopic">
+        <constructor-arg name="name" value="item-add-topic"/>
+    </bean>
+</beans>

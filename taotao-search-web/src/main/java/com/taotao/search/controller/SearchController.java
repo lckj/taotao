@@ -25,7 +25,7 @@ public class SearchController {
 
     @RequestMapping("/search")
     public String search(@RequestParam("q") String queryString, @RequestParam(defaultValue = "1") Integer page, Model model){
-        int a = 1/0;
+//        int a = 1/0;
         //get请求参数转码
         try {
             queryString = new String(queryString.getBytes("iso8859-1"), "UTF-8");
