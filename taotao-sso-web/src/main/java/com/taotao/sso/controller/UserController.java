@@ -2,8 +2,10 @@ package com.taotao.sso.controller;
 
 import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.common.utils.CookieUtils;
+import com.taotao.common.utils.JsonUtils;
 import com.taotao.pojo.TbUser;
 import com.taotao.sso.service.UserService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -52,9 +54,13 @@ public class UserController {
 
     @RequestMapping(value = "/user/token/{token}",method = RequestMethod.GET)
     @ResponseBody
-    public TaotaoResult login(@PathVariable String token){
+    public String getUserByToken(@PathVariable String token,String callback){
         TaotaoResult result = userService.getUserByToken(token);
-        return result;
+        //判断是否为jsonp请求
+        if (StringUtils.isNotBlank(callback)) {
+            return callback + "(" + JsonUtils.objectToJson(result) + ");";
+        }
+        return JsonUtils.objectToJson(result);
     }
     @RequestMapping(value = "/user/logout/{token}",method = RequestMethod.GET)
     @ResponseBody
